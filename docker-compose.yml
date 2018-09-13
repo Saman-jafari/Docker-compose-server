@@ -1,0 +1,26 @@
+version: '3'
+#export PATH=/opt/lampp/bin:$PATH
+#docker exec -ti myXampp bash
+#ssh root@localhost -p 41061
+#docker exec <name container> /opt/lampp/lampp restart
+#https://github.com/tomsik68/docker-xampp
+#docker-compose down && Docker-compose up -d
+services:
+  nginxproxy:
+    restart: always
+    image: jwilder/nginx-proxy
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+    - "80:80"
+
+  web:
+    environment:
+      VIRTUAL_HOST: blah.localhost
+    volumes:
+    - C:\xampp\htdocs\<foldername>:/www
+    build: .
+    ports:
+    - "41061:22"
+    - "41062:80"
+    image: "tomsik68/xampp"
