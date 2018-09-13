@@ -1,10 +1,15 @@
 version: '3'
+#export COMPOSE_CONVERT_WINDOWS_PATHS=1
+#set COMPOSE_CONVERT_WINDOWS_PATHS=1
 #export PATH=/opt/lampp/bin:$PATH
 #docker exec -ti myXampp bash
 #ssh root@localhost -p 41061
 #docker exec <name container> /opt/lampp/lampp restart
 #https://github.com/tomsik68/docker-xampp
 #docker-compose down && Docker-compose up -d
+#mysql
+#CREATE DATABASE 'name'
+#mysql -u -p <db-name> < <db-dump-path>
 services:
   nginxproxy:
     restart: always
